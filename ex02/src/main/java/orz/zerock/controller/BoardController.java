@@ -65,4 +65,9 @@ public class BoardController {
 		
 		return "redurect:/board/list";
 	}
+	
+	@GetMapping("/register")
+	public void register() {
+		
+	}
 }
