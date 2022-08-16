@@ -18,6 +18,7 @@ import org.springframework.web.context.WebApplicationContext;
 import lombok.Setter;
 import lombok.extern.log4j.Log4j;
 import oracle.net.ano.Service;
+import orz.zerock.controller.Criteria;
 @RunWith(SpringJUnit4ClassRunner.class)
 @WebAppConfiguration
 @ContextConfiguration({"file:src/main/webapp/WEB-INF/spring/root-context.xml",
@@ -99,6 +100,8 @@ public class BoardControllerTests {
 					.param("amount", "50"))
 					.andReturn().getModelAndView().getModelMap());
 		}
+		
+
 		
 		
 

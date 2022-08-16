@@ -12,6 +12,7 @@ import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j;
 import oracle.jdbc.proxy.annotation.Post;
 import orz.zerock.domain.BoardVO;
+import orz.zerock.domain.PageDTO;
 import orz.zerock.service.BoardService;
 
 @Controller
@@ -32,7 +33,9 @@ public class BoardController {
 	public void list(Criteria cri, Model model) {
 		log.info("list : " + cri);
 		model.addAttribute("list", service.getList(cri));
+		model.addAttribute("pageMaker", new PageDTO(cri, 123));
 	}
+	
 	
 	@PostMapping("/register")
 	public String Register(BoardVO board, RedirectAttributes rttr) {
