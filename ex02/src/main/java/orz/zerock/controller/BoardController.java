@@ -22,12 +22,17 @@ public class BoardController {
 	
 	private BoardService service;
 	
+	/*
+	 * @GetMapping("/list") public void list(Model model) { log.info("list");
+	 * 
+	 * model.addAttribute("list" , service.getList()); }
+	 */
+	
 	@GetMapping("/list")
-	public void list(Model model) {
-		log.info("list");
-		
-		model.addAttribute("list" , service.getList());
-}
+	public void list(Criteria cri, Model model) {
+		log.info("list : " + cri);
+		model.addAttribute("list", service.getList(cri));
+	}
 	
 	@PostMapping("/register")
 	public String Register(BoardVO board, RedirectAttributes rttr) {
@@ -39,10 +44,10 @@ public class BoardController {
 		return "redirect:/board/list";
 	}
 	
-	@GetMapping("/get")
+	@GetMapping({"/get","/modify"})
 	public void get(@RequestParam("bno") Long bno, Model model) {
 		
-		log.info("/get");
+		log.info("/get or /modify");
 		model.addAttribute("board",  service.get(bno));
 		
 	}
@@ -63,7 +68,7 @@ public class BoardController {
 			rttr.addFlashAttribute("result", "success");
 		}
 		
-		return "redurect:/board/list";
+		return "redirect:/board/list";
 	}
 	
 	@GetMapping("/register")

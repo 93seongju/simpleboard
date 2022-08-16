@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Repository;
 
+import orz.zerock.controller.Criteria;
 import orz.zerock.domain.BoardVO;
 
 
@@ -12,6 +13,8 @@ public interface BoardMapper {
 
 	
 	public List<BoardVO> getList();
+	
+	public List<BoardVO> getListWithPaging(Criteria cri);
 	
 	public void insert(BoardVO board);
 	
@@ -22,5 +25,7 @@ public interface BoardMapper {
 	public int delete(Long bno);
 	
 	public int update(BoardVO board);
+
+	
 }
 

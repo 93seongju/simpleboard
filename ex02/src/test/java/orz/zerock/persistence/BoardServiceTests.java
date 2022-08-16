@@ -12,6 +12,7 @@ import org.springframework.test.context.web.WebAppConfiguration;
 import lombok.AllArgsConstructor;
 import lombok.Setter;
 import lombok.extern.log4j.Log4j;
+import orz.zerock.controller.Criteria;
 import orz.zerock.domain.BoardVO;
 import orz.zerock.mapper.BoardMapper;
 import orz.zerock.service.BoardService;
@@ -67,5 +68,13 @@ public class BoardServiceTests {
 		}
 		board.setTitle("수정한 제목");
 		log.info("MODIFY RESULT : " + service.modfiy(board));
+	}
+	
+	@Test 
+	public void testGetList() {
+		
+		// service.getList().forEach(board -> log.info(board));
+		service.getList(new Criteria(2,10)).forEach(board -> log.info(board));
+		
 	}
 }

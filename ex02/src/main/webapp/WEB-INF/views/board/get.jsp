@@ -8,7 +8,7 @@
             
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Board Readr</h1>
+                    <h1 class="page-header">Board Reader</h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
@@ -37,13 +37,16 @@
                             </div>
                             
                             <div class="form-group">
-                            	<label>Title</label>	
+                            	<label>Writer</label>	
                             	<input class="form-control" name='writer' value='<c:out value="${board.writer}"/>' readonly="readonly">
                             </div>
                             
                             <button data-oper='modify' class="btn btn-default" onclick="location.href='/board/modify?bno=<c:out value="${board.bno}"/>'">Modify</button>
                             <button data-oper='list' class="btn btn-info" onclick="location.href='/board/list'">List</button>                                  
                             
+                            <form id='openForm' action="/board/modify" moethod="get">
+                            	<input type='hidden' id='bno' name='bno' value='c:out value="${board.bno}"'>
+                            </form>
                         </div>
                         <!-- end panel-body -->
                     </div>
@@ -53,4 +56,16 @@
             <!-- /.row -->
         
 <%@include file="../includes/footer.jsp" %>
+<script type="text/javascript">
+$(document).ready(function(){
+	var operForm = $("#operForm");
+	
+	$("button[data-oper='modify']").on(click),function(e){
+		orerForm.find("#bno").remove();
+		operForm.attr("action","/board/list")
+		operForm.submit();
+	}
+});
+
+</script>
     

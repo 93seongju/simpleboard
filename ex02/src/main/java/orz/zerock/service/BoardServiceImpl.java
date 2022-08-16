@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import lombok.AllArgsConstructor;
 import lombok.Setter;
 import lombok.extern.log4j.Log4j;
+import orz.zerock.controller.Criteria;
 import orz.zerock.domain.BoardVO;
 import orz.zerock.mapper.BoardMapper;
 
@@ -45,10 +46,17 @@ public class BoardServiceImpl implements BoardService {
 		return mapper.delete(bno)==1;
 	}
 
+	/*
+	 * @Override public List<BoardVO> getList() {
+	 * 
+	 * return mapper.getList(); }
+	 */
+
 	@Override
-	public List<BoardVO> getList() {
+	public List<BoardVO> getList(Criteria cri) {
+		log.info("get List with criteria" + cri);
 		
-		return mapper.getList();
+		return mapper.getListWithPaging(cri);
 	}
 
 }
