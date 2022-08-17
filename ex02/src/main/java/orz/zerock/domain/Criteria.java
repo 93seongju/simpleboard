@@ -1,4 +1,4 @@
-package orz.zerock.controller;
+package orz.zerock.domain;
 
 import lombok.Getter;
 import lombok.Setter;

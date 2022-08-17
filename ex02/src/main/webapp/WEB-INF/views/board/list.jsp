@@ -62,6 +62,13 @@
                             	</ul>
                             </div>
                             
+                            
+                            <form id="actionForm" action="/board/list" method="get">
+                            	<input type ="hidden" name='pageNum' value = '${pageMaker.cri.pageNum}'>
+                            	<input type ="hidden" name='amount' value="${pageMaker.cri.amount }">
+                            </form>
+                            
+                            
                         <!-- 모달창  -->
                         <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 							<div class="modal-dialog">
@@ -98,7 +105,9 @@ $(document).ready(function(){
 	var result = '<c:out value="${result}"/>';
 	
 	checkModal(result);
-});
+	
+	history.replaceState({}, null, null);
+
 
 function checkModal(result){
 	if(result === '' || history.state){
@@ -115,5 +124,22 @@ function checkModal(result){
 $("#regBtn").on("click", function(){
 	self.location = "/board/register";
 });
+
+
+var  actionForm = $("#actionForm");
+
+$(".pagination a").on("click", function(e){
+	e.preventDefault();
+	console.log('click');
+	
+	var targetPage = $(this).attr("href");
+	
+	console.log(targetPage);
+	
+	actionForm.find("input[name='pageNum']").val(targetPage);
+	actionForm.submit();
+	});
+});
+
 </script>
     

@@ -12,6 +12,7 @@ import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j;
 import oracle.jdbc.proxy.annotation.Post;
 import orz.zerock.domain.BoardVO;
+import orz.zerock.domain.Criteria;
 import orz.zerock.domain.PageDTO;
 import orz.zerock.service.BoardService;
 

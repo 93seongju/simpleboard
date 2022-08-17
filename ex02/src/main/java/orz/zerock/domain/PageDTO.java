@@ -2,7 +2,6 @@ package orz.zerock.domain;
 
 import lombok.Getter;
 import lombok.ToString;
-import orz.zerock.controller.Criteria;
 
 @Getter
 @ToString
