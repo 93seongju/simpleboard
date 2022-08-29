@@ -89,7 +89,12 @@ $(document).ready(function(){
 		}else if(operation === 'list'){
 			//move to list
 			formObj.attr("action", "/board/list").attr("method", "get");
+			var pageNumTag = $("input[name='pageNum']").clone();
+			var amountTag = $("input[name='amount']").clone();
+			
 			formObj.empty();
+			formObj.append(pageNumTag);
+			formObj.append(amountTag);
 		}
 		formObj.submit();
 	});

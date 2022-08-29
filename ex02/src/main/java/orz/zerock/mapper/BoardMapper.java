@@ -2,9 +2,6 @@ package orz.zerock.mapper;
 
 import java.util.List;
 
-import org.apache.ibatis.annotations.Select;
-import org.springframework.stereotype.Repository;
-
 import orz.zerock.domain.BoardVO;
 import orz.zerock.domain.Criteria;
 
@@ -25,7 +22,8 @@ public interface BoardMapper {
 	public int delete(Long bno);
 	
 	public int update(BoardVO board);
-
+	
+	public int getTotalCount(Criteria cri);
 	
 }
 
